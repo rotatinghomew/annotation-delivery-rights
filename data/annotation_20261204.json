@@ -1,0 +1,292 @@
+{
+  "fragments": [
+    {
+      "id": "F1",
+      "asset": "D18",
+      "start": 0,
+      "end": 8,
+      "label": "商品描述"
+    },
+    {
+      "id": "F2",
+      "asset": "D18",
+      "start": 8,
+      "end": 16,
+      "label": "邮寄备注"
+    },
+    {
+      "id": "F3",
+      "asset": "D29",
+      "start": 0,
+      "end": 8,
+      "label": "餐盒标签"
+    },
+    {
+      "id": "F4",
+      "asset": "D30",
+      "start": 0,
+      "end": 7,
+      "label": "门店代码"
+    }
+  ],
+  "materials": [
+    {
+      "id": "D18",
+      "body": "纸盒白底标签A合成邮寄备注B归档"
+    },
+    {
+      "id": "D29",
+      "body": "便当餐盒蓝字标签"
+    },
+    {
+      "id": "D30",
+      "body": "门店标识LAB"
+    }
+  ],
+  "permissions": [
+    {
+      "id": "P1",
+      "fragment": "F1",
+      "purpose": "train",
+      "grantee": "kitchen-team",
+      "valid_from": "07:00",
+      "valid_until": "23:00",
+      "withdrawn": null
+    },
+    {
+      "id": "P2",
+      "fragment": "F2",
+      "purpose": "train",
+      "grantee": "kitchen-team",
+      "valid_from": "07:00",
+      "valid_until": "23:00",
+      "withdrawn": "15:10"
+    },
+    {
+      "id": "P3",
+      "fragment": "F2",
+      "purpose": "qa",
+      "grantee": "review-team",
+      "valid_from": "07:00",
+      "valid_until": "23:00",
+      "withdrawn": null
+    },
+    {
+      "id": "P4",
+      "fragment": "F3",
+      "purpose": "train",
+      "grantee": "kitchen-team",
+      "valid_from": "08:00",
+      "valid_until": "23:00",
+      "withdrawn": null
+    },
+    {
+      "id": "P5",
+      "fragment": "F4",
+      "purpose": "train",
+      "grantee": "kitchen-team",
+      "valid_from": "08:00",
+      "valid_until": "23:00",
+      "withdrawn": null
+    }
+  ],
+  "work": [
+    {
+      "id": "W1",
+      "author": "L1",
+      "revision": 1,
+      "fragments": [
+        "F1",
+        "F2"
+      ],
+      "previous": null,
+      "purpose": "train",
+      "fee_cents": 150
+    },
+    {
+      "id": "W2",
+      "author": "L2",
+      "revision": 1,
+      "fragments": [
+        "F1",
+        "F2"
+      ],
+      "previous": null,
+      "purpose": "train",
+      "fee_cents": 150
+    },
+    {
+      "id": "W3",
+      "author": "L1",
+      "revision": 2,
+      "fragments": [
+        "F1",
+        "F3"
+      ],
+      "previous": "W1",
+      "purpose": "train",
+      "fee_cents": 110
+    },
+    {
+      "id": "W4",
+      "author": "L3",
+      "revision": 1,
+      "fragments": [
+        "F3"
+      ],
+      "previous": null,
+      "purpose": "train",
+      "fee_cents": 95
+    }
+  ],
+  "reviews": [
+    {
+      "id": "Q1",
+      "work": "W1",
+      "worker": "L2",
+      "decision": "accept",
+      "received": "10:50",
+      "target": null
+    },
+    {
+      "id": "Q2",
+      "work": "W2",
+      "worker": "L2",
+      "decision": "accept",
+      "received": "10:51",
+      "target": null
+    },
+    {
+      "id": "Q3",
+      "work": "W4",
+      "worker": "L1",
+      "decision": "accept",
+      "received": "11:00",
+      "target": null
+    },
+    {
+      "id": "Q4",
+      "work": "W3",
+      "worker": "L4",
+      "decision": "accept",
+      "received": "15:05",
+      "target": null
+    },
+    {
+      "id": "Q5",
+      "work": "W1",
+      "worker": "L4",
+      "decision": "reject",
+      "received": "16:20",
+      "target": "Q1"
+    }
+  ],
+  "claims": [
+    {
+      "id": "C1",
+      "grantee": "kitchen-team",
+      "purpose": "train",
+      "requested": "13:00",
+      "selected": [
+        "W1",
+        "W4"
+      ]
+    },
+    {
+      "id": "C2",
+      "grantee": "kitchen-team",
+      "purpose": "train",
+      "requested": "15:20",
+      "selected": [
+        "W1",
+        "W3",
+        "W4"
+      ]
+    }
+  ],
+  "notices": [
+    {
+      "id": "N1",
+      "claim": "C1",
+      "permission": "P2",
+      "sent": "15:15",
+      "acknowledged": null
+    }
+  ],
+  "payments": [
+    {
+      "id": "Y1",
+      "work": "W1",
+      "cents": 150,
+      "paid_at": "14:00"
+    },
+    {
+      "id": "Y2",
+      "work": "W4",
+      "cents": 95,
+      "paid_at": "14:03"
+    }
+  ],
+  "assignments": [
+    {
+      "id": "H1",
+      "operator": "L1",
+      "role": "label",
+      "fragments": [
+        "F1",
+        "F2",
+        "F3"
+      ],
+      "started": "08:30"
+    },
+    {
+      "id": "H2",
+      "operator": "L2",
+      "role": "label",
+      "fragments": [
+        "F1",
+        "F2"
+      ],
+      "started": "08:30"
+    },
+    {
+      "id": "H3",
+      "operator": "L3",
+      "role": "label",
+      "fragments": [
+        "F3"
+      ],
+      "started": "08:32"
+    },
+    {
+      "id": "H4",
+      "operator": "L2",
+      "role": "review",
+      "fragments": [
+        "F1",
+        "F2"
+      ],
+      "started": "09:20"
+    },
+    {
+      "id": "H5",
+      "operator": "L4",
+      "role": "review",
+      "fragments": [
+        "F1",
+        "F2",
+        "F3"
+      ],
+      "started": "09:22"
+    },
+    {
+      "id": "H6",
+      "operator": "L1",
+      "role": "review",
+      "fragments": [
+        "F3"
+      ],
+      "started": "09:25"
+    }
+  ]
+}
